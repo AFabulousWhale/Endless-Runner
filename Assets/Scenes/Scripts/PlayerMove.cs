@@ -16,8 +16,21 @@ public class PlayerMove : MonoBehaviour
     {
         if(other.tag == "Obstacle")
         {
-            Death();
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.forward, out hit, 1))
+            {
+                Death();
+            }
+            else
+            {
+                Stutter();
+            }
         }
+    }
+
+    void Stutter()
+    {
+
     }
 
     void Death()
