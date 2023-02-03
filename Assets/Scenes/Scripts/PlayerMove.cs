@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public GameObject deathCanvas, platforms;
+    public Score scoreScript;
     // Update is called once per frame
     void Update()
     {
@@ -16,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     {
         if(other.tag == "Obstacle")
         {
-            RaycastHit hit;
+            RaycastHit hit; //if you hit the obstacles straight on
             if (Physics.Raycast(transform.position, Vector3.forward, out hit, 1))
             {
                 Death();
@@ -26,6 +27,18 @@ public class PlayerMove : MonoBehaviour
                 Stutter();
             }
         }
+        if (other.tag == "Collectible")
+        {
+            Collect(other.gameObject);
+        }
+    }
+
+    void Collect(GameObject collectible)
+    {
+        Destroy(collectible);
+        scoreScript.score += 100;
+
+        Debug.Log("collect");
     }
 
     void Stutter()
@@ -35,12 +48,13 @@ public class PlayerMove : MonoBehaviour
 
     void Death()
     {
+        //making it so each platform and the player can't move when the player is dead
         deathCanvas.SetActive(true);
         foreach (Transform item in platforms.transform)
         {
             if(item.tag == "Platform")
             {
-                item.GetComponent<FloorMove>().enabled = false;
+                item.GetComponent<FloorController>().enabled = false;
             }
         }
         this.enabled = false;
