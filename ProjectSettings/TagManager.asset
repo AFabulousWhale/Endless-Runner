@@ -8,6 +8,7 @@ TagManager:
   - Obstacles
   - Obstacle
   - Platform
+  - Collectible
   layers:
   - Default
   - TransparentFX
