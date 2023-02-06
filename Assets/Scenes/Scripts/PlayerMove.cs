@@ -9,8 +9,8 @@ public class PlayerMove : MonoBehaviour
 
     bool sharkStartMoved = true;
     int hitObstacleTimes = 0;
-    public Vector3 sharkForwardPos, sharkBackwardsPos, moveToPos;
-    public float timer;
+    Vector3 sharkForwardPos, sharkBackwardsPos, moveToPos;
+    float timer;
     // Update is called once per frame
 
     private void Start()
