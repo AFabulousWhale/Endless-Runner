@@ -11,6 +11,26 @@ public class Leaderboard : MonoBehaviour
     public TextMeshProUGUI lbText;
 
     int placement;
+
+    void Start()
+    {
+        currentScores[0] = PlayerPrefs.GetFloat("firstPlace");
+        currentScores[1] = PlayerPrefs.GetFloat("secondPlace");
+        currentScores[2] = PlayerPrefs.GetFloat("thirdPlace");
+        currentScores[3] = PlayerPrefs.GetFloat("fourthPlace");
+        currentScores[4] = PlayerPrefs.GetFloat("fifthPlace");
+    }
+
+    public void OnDeath()
+    {
+        PlayerPrefs.SetFloat("firstPlace", currentScores[0]);
+        PlayerPrefs.SetFloat("secondPlace", currentScores[1]);
+        PlayerPrefs.SetFloat("thirdPlace", currentScores[2]);
+        PlayerPrefs.SetFloat("fourthPlace", currentScores[3]);
+        PlayerPrefs.SetFloat("fifthPlace", currentScores[4]);
+        PlayerPrefs.Save();
+    }
+
     public void CompareScore(float playerScore)
     {
         Debug.Log(playerScore);

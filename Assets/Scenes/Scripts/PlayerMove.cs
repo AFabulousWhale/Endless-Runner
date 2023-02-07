@@ -98,6 +98,7 @@ public class PlayerMove : MonoBehaviour
         {
             score.text = $"NEW HIGH SCORE: {leaderboard.currentScores[0]}";
         }
+        leaderboard.OnDeath();
 
         this.enabled = false;
     }
