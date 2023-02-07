@@ -42,7 +42,6 @@ public class Shark : MonoBehaviour
                 //if the shark is facing forwards and has reached the destination then the timer will be reset but if the player hits another obstacle in that time then they die
                 if (moveToPos == sharkForwardPos)
                 {
-                    playerMove.hitOnce = false;
                     timer = 0;
                 }
                 sharkStartMoved = true; //boolean is used to make sure the shark moving is called once it reached it's desired position

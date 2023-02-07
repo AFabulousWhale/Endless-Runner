@@ -19,10 +19,7 @@ public class PlayerMove : MonoBehaviour
         float speed = Input.GetAxis("Horizontal") * 10f;
         this.transform.Translate(speed*Time.deltaTime, 0, 0);
 
-        if(!hitOnce)
-        {
-            HitCheck();
-        }
+        HitCheck();
     }
 
     void HitCheck()
@@ -32,7 +29,6 @@ public class PlayerMove : MonoBehaviour
         Debug.DrawRay(transform.position, Vector3.right, Color.red, 1);
         if (Physics.Raycast(transform.position, Vector3.forward, out hit, 1))
         {
-            hitOnce = true;
             if(hit.transform.gameObject.tag == "Obstacle")
             {
                 Death();
@@ -41,10 +37,10 @@ public class PlayerMove : MonoBehaviour
             {
                 Collect(hit.transform.gameObject);
             }
-        }
-        else if (Physics.Raycast(transform.position, Vector3.right, out hit, 1) && !hitOnce)
-        {
             hitOnce = true;
+        }
+        else if (Physics.Raycast(transform.position, Vector3.right, out hit, 1) || Physics.Raycast(transform.position, Vector3.left, out hit, 1))
+        {
             if(hit.transform.gameObject.tag == "Obstacle")
             {
                 if(hitObstacleTimes == 2) //if you hit an obstacle on the side twice (the shark is forwards and you hit an obstacle again)
@@ -56,6 +52,11 @@ public class PlayerMove : MonoBehaviour
                     Stutter();
                 }
             }
+            hitOnce = true;
+        }
+        else
+        {
+            hitOnce = false;
         }
     }
 
@@ -63,7 +64,6 @@ public class PlayerMove : MonoBehaviour
     {
         Destroy(collectible);
         scoreScript.score += 100;
-        hitOnce = false;
     }
 
     void Stutter()
@@ -79,9 +79,12 @@ public class PlayerMove : MonoBehaviour
         deathCanvas.SetActive(true);
         foreach (Transform item in platforms.transform)
         {
-            if(item.tag == "Platform" || item.tag == "Walls")
+            foreach (Transform child in item)
             {
-                item.GetComponent<FloorController>().enabled = false;
+                if(child.tag == "Platform" || child.tag == "Walls")
+                {
+                    child.GetComponent<FloorController>().enabled = false;
+                }
             }
         }
         scoreScript.enabled = false;

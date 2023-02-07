@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Platform
   - Collectible
+  - Walls
   layers:
   - Default
   - TransparentFX
