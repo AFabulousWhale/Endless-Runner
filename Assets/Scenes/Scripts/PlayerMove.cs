@@ -6,9 +6,10 @@ using TMPro;
 public class PlayerMove : MonoBehaviour
 {
     public GameObject deathCanvas, platforms;
-    public TextMeshProUGUI currentScore;
+    public TextMeshProUGUI score;
     public Score scoreScript;
     public Shark sharkScript;
+    public Leaderboard leaderboard;
 
     public int hitObstacleTimes = 0;
 
@@ -88,7 +89,16 @@ public class PlayerMove : MonoBehaviour
             }
         }
         scoreScript.enabled = false;
-        currentScore.text = scoreScript.score.ToString("Current Score: 0");
+        leaderboard.CompareScore(scoreScript.score);
+        if(leaderboard.currentScores[0] != scoreScript.score)
+        {
+            score.text = $"Current Score: {scoreScript.score.ToString()}<br> High Score: {leaderboard.currentScores[0]}";
+        }
+        else
+        {
+            score.text = $"NEW HIGH SCORE: {leaderboard.currentScores[0]}";
+        }
+
         this.enabled = false;
     }
 }
