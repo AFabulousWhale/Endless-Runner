@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMove : MonoBehaviour
 {
     public GameObject deathCanvas, platforms, Shark;
+    public TextMeshProUGUI currentScore;
     public Score scoreScript;
 
     bool sharkStartMoved = true;
@@ -80,6 +82,7 @@ public class PlayerMove : MonoBehaviour
             }
         }
         scoreScript.enabled = false;
+        currentScore.text = scoreScript.score.ToString("Current Score: 0");
         this.enabled = false;
     }
 
