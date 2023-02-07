@@ -12,12 +12,17 @@ public class PlayerMove : MonoBehaviour
 
     public int hitObstacleTimes = 0;
 
+    public bool hitOnce;
+
     void Update()
     {
         float speed = Input.GetAxis("Horizontal") * 10f;
         this.transform.Translate(speed*Time.deltaTime, 0, 0);
 
-        HitCheck();
+        if(!hitOnce)
+        {
+            HitCheck();
+        }
     }
 
     void HitCheck()
@@ -27,6 +32,7 @@ public class PlayerMove : MonoBehaviour
         Debug.DrawRay(transform.position, Vector3.right, Color.red, 1);
         if (Physics.Raycast(transform.position, Vector3.forward, out hit, 1))
         {
+            hitOnce = true;
             if(hit.transform.gameObject.tag == "Obstacle")
             {
                 Death();
@@ -36,8 +42,9 @@ public class PlayerMove : MonoBehaviour
                 Collect(hit.transform.gameObject);
             }
         }
-        else if (Physics.Raycast(transform.position, Vector3.right, out hit, 1))
+        else if (Physics.Raycast(transform.position, Vector3.right, out hit, 1) && !hitOnce)
         {
+            hitOnce = true;
             if(hit.transform.gameObject.tag == "Obstacle")
             {
                 if(hitObstacleTimes == 2) //if you hit an obstacle on the side twice (the shark is forwards and you hit an obstacle again)
@@ -56,6 +63,7 @@ public class PlayerMove : MonoBehaviour
     {
         Destroy(collectible);
         scoreScript.score += 100;
+        hitOnce = false;
     }
 
     void Stutter()
