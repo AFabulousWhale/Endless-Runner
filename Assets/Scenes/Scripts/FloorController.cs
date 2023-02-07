@@ -12,10 +12,11 @@ public class FloorController : MonoBehaviour
 
     public int maxSpawnables = 2; //this includes obstacles and collectibles
 
-    Vector3 startPos;
+    Vector3 startPos, moveToPos;
     Renderer rend;
     private void Start()
     {
+        moveToPos = new Vector3(this.transform.position.x, this.transform.position.y, movePos.transform.position.z);
         rend = this.GetComponent<Renderer>();
         startPos = backPlatform.transform.position;
         foreach (Transform spawnable in spawnableParent.transform) //if there are multiples objects, it adds it from one parent into a list (this is a prefab)
@@ -25,7 +26,7 @@ public class FloorController : MonoBehaviour
     }
     void Update()
     {
-        this.transform.position = Vector3.MoveTowards(this.transform.position, movePos.transform.position, fishSpeed);
+        this.transform.position = Vector3.MoveTowards(this.transform.position, moveToPos, fishSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,16 +34,19 @@ public class FloorController : MonoBehaviour
         //if the platform has reached the end it will spawn new obstacles
         if(other.tag == "HitBox")
         {
-            int spawnableCount;
-            foreach (Transform item in this.transform)
+            if(this.tag == "Platform")
             {
-                Destroy(item.gameObject);
-            }
+                int spawnableCount;
+                foreach (Transform item in this.transform) //destorys the current collectibles on the platform
+                {
+                    Destroy(item.gameObject);
+                }
 
-            spawnableCount = Random.Range(1, (maxSpawnables + 1));
-            for (int i = 0; i < spawnableCount; i++) //can spawn multiple per platform for more difficult levels
-            {
-                SpawnSpawnables();
+                spawnableCount = Random.Range(1, (maxSpawnables + 1));
+                for (int i = 0; i < spawnableCount; i++) //can spawn multiple per platform for more difficult levels
+                {
+                    SpawnSpawnables();
+                }
             }
             this.transform.position = startPos;
         }

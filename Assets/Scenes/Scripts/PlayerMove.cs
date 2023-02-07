@@ -5,41 +5,40 @@ using TMPro;
 
 public class PlayerMove : MonoBehaviour
 {
-    public GameObject deathCanvas, platforms, Shark;
+    public GameObject deathCanvas, platforms;
     public TextMeshProUGUI currentScore;
     public Score scoreScript;
+    public Shark sharkScript;
 
-    bool sharkStartMoved = true;
-    int hitObstacleTimes = 0;
-    Vector3 sharkForwardPos, sharkBackwardsPos, moveToPos;
-    float timer;
-    // Update is called once per frame
-
-    private void Start()
-    {
-        sharkForwardPos = Shark.transform.position;
-        sharkBackwardsPos = new Vector3(Shark.transform.position.x, Shark.transform.position.y, Shark.transform.position.z - 1.5f);
-    }
+    public int hitObstacleTimes = 0;
 
     void Update()
     {
-        timer += 0.5f;
         float speed = Input.GetAxis("Horizontal") * 10f;
         this.transform.Translate(speed*Time.deltaTime, 0, 0);
 
-        SharkCheck();
+        HitCheck();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void HitCheck()
     {
-        if(other.tag == "Obstacle")
+        RaycastHit hit; //if you hit the obstacles straight on
+        Debug.DrawRay(transform.position, Vector3.forward, Color.green, 1);
+        Debug.DrawRay(transform.position, Vector3.right, Color.red, 1);
+        if (Physics.Raycast(transform.position, Vector3.forward, out hit, 1))
         {
-            RaycastHit hit; //if you hit the obstacles straight on
-            if (Physics.Raycast(transform.position, Vector3.forward, out hit, 1))
+            if(hit.transform.gameObject.tag == "Obstacle")
             {
                 Death();
             }
-            else
+            else if (hit.transform.gameObject.tag == "Collectible")
+            {
+                Collect(hit.transform.gameObject);
+            }
+        }
+        else if (Physics.Raycast(transform.position, Vector3.right, out hit, 1))
+        {
+            if(hit.transform.gameObject.tag == "Obstacle")
             {
                 if(hitObstacleTimes == 2) //if you hit an obstacle on the side twice (the shark is forwards and you hit an obstacle again)
                 {
@@ -50,10 +49,6 @@ public class PlayerMove : MonoBehaviour
                     Stutter();
                 }
             }
-        }
-        if (other.tag == "Collectible")
-        {
-            Collect(other.gameObject);
         }
     }
 
@@ -66,8 +61,8 @@ public class PlayerMove : MonoBehaviour
     void Stutter()
     {
         hitObstacleTimes++;
-        sharkStartMoved = false;
-        MoveShark("forwards"); //moves the shark forwards if you've stuttered
+        sharkScript.sharkStartMoved = false;
+        sharkScript.MoveShark("forwards"); //moves the shark forwards if you've stuttered
     }
 
     void Death()
@@ -76,7 +71,7 @@ public class PlayerMove : MonoBehaviour
         deathCanvas.SetActive(true);
         foreach (Transform item in platforms.transform)
         {
-            if(item.tag == "Platform")
+            if(item.tag == "Platform" || item.tag == "Walls")
             {
                 item.GetComponent<FloorController>().enabled = false;
             }
@@ -84,44 +79,5 @@ public class PlayerMove : MonoBehaviour
         scoreScript.enabled = false;
         currentScore.text = scoreScript.score.ToString("Current Score: 0");
         this.enabled = false;
-    }
-
-    //shark movement depending on the player hitting the obstacles:
-
-    void SharkCheck()
-    {
-        if (timer == 200) //moves the shark backwards after 5 seconds at the start of the round
-        {
-            hitObstacleTimes = 0; //resets the obstacles hit
-            sharkStartMoved = false;
-            MoveShark("backwards");
-        }
-
-        if (!sharkStartMoved)
-        {
-            Shark.transform.position = Vector3.MoveTowards(Shark.transform.position, moveToPos, 0.05f);
-            if (Shark.transform.position == moveToPos)
-            {
-                //if the shark is facing forwards and has reached the destination then the timer will be reset but if the player hits another obstacle in that time then they die
-                if (moveToPos == sharkForwardPos)
-                {
-                    timer = 0;
-                }
-                sharkStartMoved = true; //boolean is used to make sure the shark moving is called once it reached it's desired position
-            }
-        }
-    }
-
-    void MoveShark(string direction)
-    {
-        switch(direction)
-        {
-            case "forwards":
-                moveToPos = sharkForwardPos;
-                break;
-            case "backwards":
-                moveToPos = sharkBackwardsPos;
-                break;
-        }
     }
 }
