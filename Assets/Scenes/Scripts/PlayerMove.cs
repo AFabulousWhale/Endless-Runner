@@ -5,15 +5,13 @@ using TMPro;
 
 public class PlayerMove : MonoBehaviour
 {
-    public GameObject deathCanvas, platforms;
+    public GameObject deathCanvas, platforms, hitObject;
     public TextMeshProUGUI score;
     public Score scoreScript;
     public Shark sharkScript;
     public Leaderboard leaderboard;
 
     public int hitObstacleTimes = 0;
-
-    public bool hitOnce;
 
     void Update()
     {
@@ -28,36 +26,39 @@ public class PlayerMove : MonoBehaviour
         RaycastHit hit; //if you hit the obstacles straight on
         Debug.DrawRay(transform.position, Vector3.forward, Color.green, 1);
         Debug.DrawRay(transform.position, Vector3.right, Color.red, 1);
-        if (Physics.Raycast(transform.position, Vector3.forward, out hit, 1))
+        if (Physics.Raycast(transform.position, Vector3.forward, out hit, 2))
         {
-            if(hit.transform.gameObject.tag == "Obstacle")
+            if (hitObject != hit.transform.gameObject)
             {
-                Death();
-            }
-            else if (hit.transform.gameObject.tag == "Collectible")
-            {
-                Collect(hit.transform.gameObject);
-            }
-            hitOnce = true;
-        }
-        else if (Physics.Raycast(transform.position, Vector3.right, out hit, 1) || Physics.Raycast(transform.position, Vector3.left, out hit, 1))
-        {
-            if(hit.transform.gameObject.tag == "Obstacle")
-            {
-                if(hitObstacleTimes == 2) //if you hit an obstacle on the side twice (the shark is forwards and you hit an obstacle again)
+                if (hit.transform.gameObject.tag == "Obstacle")
                 {
                     Death();
                 }
-                else
+                else if (hit.transform.gameObject.tag == "Collectible")
                 {
-                    Stutter();
+                    Collect(hit.transform.gameObject);
                 }
             }
-            hitOnce = true;
+            hitObject = hit.transform.gameObject;
         }
-        else
+        else if (Physics.Raycast(transform.position, Vector3.right, out hit, 2) || Physics.Raycast(transform.position, Vector3.left, out hit, 2))
         {
-            hitOnce = false;
+            if (hitObject != hit.transform.gameObject)
+            {
+                if (hit.transform.gameObject.tag == "Obstacle")
+                {
+                    if (hitObstacleTimes == 2) //if you hit an obstacle on the side twice (the shark is forwards and you hit an obstacle again)
+                    {
+                        Death();
+                    }
+                    else
+                    {
+                        Stutter();
+                    }
+                }
+            }
+            hitObject = hit.transform.gameObject;
+
         }
     }
 
@@ -99,7 +100,7 @@ public class PlayerMove : MonoBehaviour
             score.text = $"NEW HIGH SCORE: {leaderboard.currentScores[0]}";
         }
         leaderboard.OnDeath();
-
+        sharkScript.enabled = false;
         this.enabled = false;
     }
 }

@@ -65,5 +65,6 @@ public class FloorController : MonoBehaviour
         visibleObstacle = Random.Range(0, spawnables.Count);
         currentObstalce = Instantiate(spawnables[visibleObstacle], spawnableSpawn, Quaternion.identity);
         currentObstalce.transform.parent = this.transform;
+        currentObstalce.GetComponent<SphereCollider>().enabled = false; //this is so the player doesn't collide with this collider but the main collider of the object isntead
     }
 }
