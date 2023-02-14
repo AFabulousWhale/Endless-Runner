@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    public GameObject mainCanvas, optionsCanvas;
+
     public void StartGame()
     {
-        //go to main gameplay scene
+        SceneManager.LoadScene("MainGameplay");
     }
 
     public void Options()
     {
-        //copy options from the pause menu
-        //change options to a seperate script
+        optionsCanvas.SetActive(true);
+        mainCanvas.SetActive(false);
     }
 
     public void LeaderBoard()
@@ -23,5 +26,11 @@ public class MainMenuScript : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void Back()
+    {
+        optionsCanvas.SetActive(false);
+        mainCanvas.SetActive(true);
     }
 }

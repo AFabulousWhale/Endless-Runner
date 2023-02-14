@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class PauseMenuScript : MonoBehaviour
 {
     public GameObject optionsMenu, pauseMenu, platforms;
     public Score scoreScript;
     public Shark sharkScript;
-    public AudioMixer masterMixer;
 
     bool isPaused;
 
@@ -76,24 +74,4 @@ public class PauseMenuScript : MonoBehaviour
         sharkScript.enabled = true;
         pauseMenu.SetActive(false);
     }
-
-    public void ChangeSFXVolume(float volume)
-    {
-        volume = Mathf.Log(volume) * 20; //converting volume from linear to logarithmic scale
-        masterMixer.SetFloat("SFXVolume", volume);
-    }
-
-    public void ChangeMusicVolume(float volume)
-    {
-        volume = Mathf.Log(volume) * 20;
-        masterMixer.SetFloat("MusicVolume", volume);
-    }
-
-    public void ChangeMainVolume(float volume)
-    {
-        volume = Mathf.Log(volume) * 20;
-        masterMixer.SetFloat("MainVolume", volume);
-    }
-
-
 }

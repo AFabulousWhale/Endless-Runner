@@ -711,6 +711,7 @@ GameObject:
   - component: {fileID: 241740015}
   - component: {fileID: 241740014}
   - component: {fileID: 241740013}
+  - component: {fileID: 241740017}
   m_Layer: 5
   m_Name: PauseMenuCanvas
   m_TagString: Untagged
@@ -757,7 +758,6 @@ MonoBehaviour:
   platforms: {fileID: 809849674}
   scoreScript: {fileID: 1540753591}
   sharkScript: {fileID: 1256736009}
-  masterMixer: {fileID: 24100000, guid: f32f12552901e9445b1125401b160f8f, type: 2}
 --- !u!114 &241740014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,6 +819,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &241740017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241740011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b18cd2f3d65e54da5f412250c0ce01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: f32f12552901e9445b1125401b160f8f, type: 2}
 --- !u!1 &259615882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,8 +1480,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 241740013}
-        m_TargetAssemblyTypeName: PauseMenuScript, Assembly-CSharp
+      - m_Target: {fileID: 241740017}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
         m_MethodName: ChangeMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -2333,7 +2346,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 566603043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1540753593}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &566603043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3702,8 +3727,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 241740013}
-        m_TargetAssemblyTypeName: PauseMenuScript, Assembly-CSharp
+      - m_Target: {fileID: 241740017}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
         m_MethodName: ChangeSFXVolume
         m_Mode: 0
         m_Arguments:
@@ -5461,8 +5486,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 241740013}
-        m_TargetAssemblyTypeName: PauseMenuScript, Assembly-CSharp
+      - m_Target: {fileID: 241740017}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
         m_MethodName: ChangeMainVolume
         m_Mode: 0
         m_Arguments:
