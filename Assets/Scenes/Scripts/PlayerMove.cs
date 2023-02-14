@@ -74,7 +74,7 @@ public class PlayerMove : MonoBehaviour
         sharkScript.sharkStartMoved = false;
         sharkScript.MoveShark("forwards"); //moves the shark forwards if you've stuttered
     }
-
+    
     void Death()
     {
         //making it so each platform and the player can't move when the player is dead

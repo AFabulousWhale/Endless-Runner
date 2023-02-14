@@ -5,14 +5,27 @@ using UnityEngine.Audio;
 
 public class PauseMenuScript : MonoBehaviour
 {
-    public GameObject optionsMenu, pauseMenu;
+    public GameObject optionsMenu, pauseMenu, platforms;
+    public Score scoreScript;
+    public Shark sharkScript;
     public AudioMixer masterMixer;
+
+    bool isPaused;
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause();
+            if(!isPaused)
+            {
+                isPaused = true;
+                Pause();
+            }
+            else if (isPaused)
+            {
+                isPaused = false;
+                Resume();
+            }
         }
     }
 
@@ -25,6 +38,18 @@ public class PauseMenuScript : MonoBehaviour
     public void Pause()
     {
         Time.timeScale = 0;
+        foreach (Transform item in platforms.transform)
+        {
+            foreach (Transform child in item)
+            {
+                if(child.tag == "Platform" || child.tag == "Walls")
+                {
+                    child.GetComponent<FloorController>().enabled = false;
+                }
+            }
+        }
+        scoreScript.enabled = false;
+        sharkScript.enabled = false;
         optionsMenu.SetActive(false);
         pauseMenu.SetActive(true);
     }
@@ -37,6 +62,18 @@ public class PauseMenuScript : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1;
+        foreach (Transform item in platforms.transform)
+        {
+            foreach (Transform child in item)
+            {
+                if(child.tag == "Platform" || child.tag == "Walls")
+                {
+                    child.GetComponent<FloorController>().enabled = true;
+                }
+            }
+        }
+        scoreScript.enabled = true;
+        sharkScript.enabled = true;
         pauseMenu.SetActive(false);
     }
 
