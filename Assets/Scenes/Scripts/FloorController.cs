@@ -14,6 +14,7 @@ public class FloorController : MonoBehaviour
 
     Vector3 startPos, moveToPos;
     Renderer rend;
+
     private void Start()
     {
         moveToPos = new Vector3(this.transform.position.x, this.transform.position.y, movePos.transform.position.z);
@@ -34,7 +35,8 @@ public class FloorController : MonoBehaviour
         //if the platform has reached the end it will spawn new obstacles
         if(other.tag == "HitBox")
         {
-            if(this.tag == "Platform")
+
+            if(this.tag == "Platform") //only spawn obstacles on the floors
             {
                 int spawnableCount;
                 foreach (Transform item in this.transform) //destorys the current collectibles on the platform
@@ -49,12 +51,12 @@ public class FloorController : MonoBehaviour
                 }
             }
             this.transform.position = startPos;
+            fishSpeed += 0.005f;
         }
     }
 
     void SpawnSpawnables()
     {
-        fishSpeed += 0.05f;
         int visibleObstacle; //index in the list of spawnables to spawn
         float spawnableSpawnRandomX;
         float spawnableSpawnRandomZ;
