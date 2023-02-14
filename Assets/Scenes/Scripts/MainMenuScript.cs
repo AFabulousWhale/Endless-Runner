@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public GameObject mainCanvas, optionsCanvas;
+    public GameObject mainCanvas, optionsCanvas, lbCanvas;
 
     public void StartGame()
     {
@@ -20,7 +20,10 @@ public class MainMenuScript : MonoBehaviour
 
     public void LeaderBoard()
     {
-        //go to leaderboard scene
+        lbCanvas.GetComponent<Leaderboard>().GetScores();
+        lbCanvas.GetComponent<Leaderboard>().UpdateScore();
+        lbCanvas.SetActive(true);
+        mainCanvas.SetActive(false);
     }
 
     public void Quit()
@@ -30,6 +33,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void Back()
     {
+        lbCanvas.SetActive(false);
         optionsCanvas.SetActive(false);
         mainCanvas.SetActive(true);
     }

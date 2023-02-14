@@ -54,6 +54,7 @@ public class FloorController : MonoBehaviour
 
     void SpawnSpawnables()
     {
+        fishSpeed += 0.05f;
         int visibleObstacle; //index in the list of spawnables to spawn
         float spawnableSpawnRandomX;
         float spawnableSpawnRandomZ;

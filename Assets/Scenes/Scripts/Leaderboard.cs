@@ -14,6 +14,11 @@ public class Leaderboard : MonoBehaviour
 
     void Start()
     {
+        GetScores();
+    }
+
+    public void GetScores()
+    {
         currentScores[0] = PlayerPrefs.GetFloat("firstPlace");
         currentScores[1] = PlayerPrefs.GetFloat("secondPlace");
         currentScores[2] = PlayerPrefs.GetFloat("thirdPlace");
