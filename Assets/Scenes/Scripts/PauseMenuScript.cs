@@ -8,27 +8,33 @@ public class PauseMenuScript : MonoBehaviour
     public Score scoreScript;
     public Shark sharkScript;
 
-    bool isPaused;
+    string menu = "game";
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(!isPaused)
+            if(menu == "game")
             {
-                isPaused = true;
+                menu = "paused";
                 Pause();
             }
-            else if (isPaused)
+            else if (menu == "paused")
             {
-                isPaused = false;
+                menu = "game";
                 Resume();
+            }
+            else if (menu == "options")
+            {
+                menu = "paused";
+                Pause();
             }
         }
     }
 
     public void Options()
     {
+        menu = "options";
         optionsMenu.SetActive(true);
         pauseMenu.SetActive(false);
     }
