@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
     public GameObject optionsMenu, pauseMenu, platforms;
     public Score scoreScript;
     public Shark sharkScript;
+    public AudioSource button;
 
     string menu = "game";
 
@@ -60,7 +62,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void Menu()
     {
-        //go to menu scene
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Resume()
@@ -79,5 +81,10 @@ public class PauseMenuScript : MonoBehaviour
         scoreScript.enabled = true;
         sharkScript.enabled = true;
         pauseMenu.SetActive(false);
+    }
+
+    public void Audio()
+    {
+        button.Play();
     }
 }
