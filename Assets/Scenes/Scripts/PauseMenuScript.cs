@@ -18,6 +18,7 @@ public class PauseMenuScript : MonoBehaviour
         {
             if(menu == "game")
             {
+                button.Play();
                 menu = "paused";
                 Pause();
             }
@@ -81,10 +82,5 @@ public class PauseMenuScript : MonoBehaviour
         scoreScript.enabled = true;
         sharkScript.enabled = true;
         pauseMenu.SetActive(false);
-    }
-
-    public void Audio()
-    {
-        button.Play();
     }
 }
