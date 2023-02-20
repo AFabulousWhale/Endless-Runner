@@ -60,14 +60,15 @@ public class FloorController : MonoBehaviour
         int visibleObstacle; //index in the list of spawnables to spawn
         float spawnableSpawnRandomX;
         float spawnableSpawnRandomZ;
+        float spawnableSpawnRandomY;
         Vector3 spawnableSpawn;
         GameObject currentObstalce;
         spawnableSpawnRandomX = Random.Range(rend.bounds.min.x, rend.bounds.max.x);
         spawnableSpawnRandomZ = Random.Range(rend.bounds.min.z, rend.bounds.max.z);
-        spawnableSpawn = new Vector3(spawnableSpawnRandomX, 0, spawnableSpawnRandomZ);
+        spawnableSpawnRandomY = Random.Range(0, 7);
+        spawnableSpawn = new Vector3(spawnableSpawnRandomX, spawnableSpawnRandomY, spawnableSpawnRandomZ);
         visibleObstacle = Random.Range(0, spawnables.Count);
         currentObstalce = Instantiate(spawnables[visibleObstacle], spawnableSpawn, Quaternion.identity);
         currentObstalce.transform.parent = this.transform;
-        currentObstalce.GetComponent<SphereCollider>().enabled = false; //this is so the player doesn't collide with this collider but the main collider of the object isntead
     }
 }

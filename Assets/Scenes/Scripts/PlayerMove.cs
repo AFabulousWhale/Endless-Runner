@@ -19,15 +19,16 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        float speed = Input.GetAxis("Horizontal") * 10f;
-        this.transform.Translate(speed*Time.deltaTime, 0, 0);
+        float xSpeed = Input.GetAxis("Horizontal") * 10f;
+        float ySpeed = Input.GetAxis("Vertical") * 10f;
+        this.transform.Translate(xSpeed*Time.deltaTime, ySpeed * Time.deltaTime, 0);
     }
 
     public void Stutter()
     {
         hitObstacleTimes++;
         sharkScript.sharkStartMoved = false;
-        sharkScript.MoveShark("forwards"); //moves the shark forwards if you've stuttered
+        sharkScript.direction = "forwards"; //moves the shark forwards if you've stuttered
     }
     
     public void Death()
@@ -52,7 +53,7 @@ public class PlayerMove : MonoBehaviour
         leaderboard.CompareScore(scoreScript.score);
         if(leaderboard.currentScores[0] != scoreScript.score)
         {
-            score.text = $"Current Score: {scoreScript.score.ToString()}<br> High Score: {leaderboard.currentScores[0]}";
+            score.text = $"Current Score: {scoreScript.score.ToString("0")}<br> High Score: {leaderboard.currentScores[0]}";
         }
         else
         {
