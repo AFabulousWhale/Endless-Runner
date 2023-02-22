@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FloorController : MonoBehaviour
 {
-    public GameObject movePos, backPlatform, spawnableParent;
+    public GameObject movePos, backPlatform, spawnableParent, objects;
 
-    public List<GameObject> spawnables;
+    public List<GameObject> spawnables, movingObjects;
 
     public float fishSpeed = 0.07f;
 
@@ -17,6 +17,17 @@ public class FloorController : MonoBehaviour
 
     private void Start()
     {
+        //adding each moving object to the list for later use for speed detection
+        foreach (Transform item in objects.transform)
+        {
+            foreach (Transform child in item)
+            {
+                if (child.tag == "Platform" || child.tag == "Walls")
+                {
+                    movingObjects.Add(child.gameObject);
+                }
+            }
+        }
         moveToPos = new Vector3(this.transform.position.x, this.transform.position.y, movePos.transform.position.z);
         rend = this.GetComponent<Renderer>();
         startPos = backPlatform.transform.position;
@@ -51,7 +62,15 @@ public class FloorController : MonoBehaviour
                 }
             }
             this.transform.position = startPos;
-            fishSpeed += 0.005f;
+
+            //when the back platform reaches the front "it has done a full lap", then increases the speed for each object
+            if (this.gameObject == backPlatform)
+            {
+                foreach (var item in movingObjects)
+                {
+                    item.GetComponent<FloorController>().fishSpeed += 0.0002f;
+                }
+            }
         }
     }
 
