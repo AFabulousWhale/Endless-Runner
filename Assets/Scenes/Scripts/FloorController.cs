@@ -8,15 +8,17 @@ public class FloorController : MonoBehaviour
 
     public List<GameObject> spawnables, movingObjects;
 
-    public float fishSpeed = 0.07f;
+    public float fishSpeed;
 
-    public int maxSpawnables = 2; //this includes obstacles and collectibles
+    public int maxSpawnables; //this includes obstacles and collectibles
 
     Vector3 startPos, moveToPos;
     Renderer rend;
 
     private void Start()
     {
+        fishSpeed = 0.25f;
+        maxSpawnables = 2;
         //adding each moving object to the list for later use for speed detection
         foreach (Transform item in objects.transform)
         {
