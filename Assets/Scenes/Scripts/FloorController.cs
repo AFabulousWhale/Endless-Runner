@@ -70,7 +70,7 @@ public class FloorController : MonoBehaviour
             {
                 foreach (var item in movingObjects)
                 {
-                    item.GetComponent<FloorController>().fishSpeed += 0.0002f;
+                    item.GetComponent<FloorController>().fishSpeed += 0.0025f;
                 }
             }
         }
