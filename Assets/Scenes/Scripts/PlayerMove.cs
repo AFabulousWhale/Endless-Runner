@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerMove : MonoBehaviour
     public Score scoreScript;
     public Shark sharkScript;
     public Leaderboard leaderboard;
+
+    public Image heart1, heart2;
 
     public int hitObstacleTimes = 0;
 
@@ -26,6 +29,7 @@ public class PlayerMove : MonoBehaviour
 
     public void Stutter()
     {
+        heart2.fillAmount = 0; //visually show you've lost 1 heart
         hitObstacleTimes++;
         sharkScript.sharkStartMoved = false;
         sharkScript.direction = "forwards"; //moves the shark forwards if you've stuttered
@@ -33,6 +37,7 @@ public class PlayerMove : MonoBehaviour
     
     public void Death()
     {
+        heart1.fillAmount = 0; //visually show you've lost 2 hearts
         this.GetComponent<AudioSource>().clip = death;
         this.GetComponent<AudioSource>().Play();
         mainMusic.Stop();

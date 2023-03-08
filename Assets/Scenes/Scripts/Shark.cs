@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shark : MonoBehaviour
 {
+    public Image heart;
     public PlayerMove playerMove;
     public GameObject player;
 
@@ -12,10 +14,12 @@ public class Shark : MonoBehaviour
 
     public string direction;
 
+    bool canfill;
+
     private void Start()
     {
+        canfill = true;
         direction = "forwards";
-        StartCoroutine(timer());
     }
     void Update()
     {
@@ -23,6 +27,11 @@ public class Shark : MonoBehaviour
         sharkBackwardsPos = new Vector3(player.transform.position.x, this.transform.position.y, -11.81f);
         SharkCheck();
         FollowPlayer();
+
+        if(canfill)
+        {
+            FillHeart();
+        }
 
         if(direction == "backwards")
         {
@@ -35,12 +44,25 @@ public class Shark : MonoBehaviour
     }
     //shark movement depending on the player hitting the obstacles:
 
-    IEnumerator timer()
+    void ResetShark()
     {
-        yield return new WaitForSeconds(5);
         playerMove.hitObstacleTimes = 0; //resets the obstacles hit
         sharkStartMoved = false;
         direction = "backwards";
+    }
+
+    void FillHeart()
+    {
+        ///if the heart isn't full
+        if (heart.fillAmount != 1)
+        {
+            heart.fillAmount += 0.001f;
+        }
+        else
+        {
+            canfill = false;
+            ResetShark();
+        }
     }
 
     public void SharkCheck()
@@ -55,7 +77,7 @@ public class Shark : MonoBehaviour
                 if (direction == "forwards")
                 {
                     Debug.Log("moveback");
-                    StartCoroutine(timer());
+                    canfill = true;
                 }
                 sharkStartMoved = true; //boolean is used to make sure the shark moving is called once it reached it's desired position
             }
