@@ -24,7 +24,7 @@ public class PlayerMove : MonoBehaviour
     {
         float xSpeed = Input.GetAxis("Horizontal") * 10f;
         float ySpeed = Input.GetAxis("Vertical") * 10f;
-        this.transform.Translate(xSpeed*Time.deltaTime, ySpeed * Time.deltaTime, 0);
+        this.transform.Translate(0, ySpeed * Time.deltaTime, -xSpeed * Time.deltaTime);
     }
 
     public void Stutter()
