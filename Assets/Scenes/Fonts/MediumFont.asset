@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: junegull SDF
+  m_Name: MediumFont
   m_EditorClassIdentifier: 
   hashCode: 599414807
   material: {fileID: 5900088302747890861}
