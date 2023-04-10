@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 699481447889701449}
   - component: {fileID: 1518933791954161281}
   - component: {fileID: 6805805058654011523}
-  - component: {fileID: 5148964247589822450}
   - component: {fileID: 8507702973838048735}
   m_Layer: 0
   m_Name: trashes.004
@@ -118,19 +117,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5148964247589822450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6126597727823345709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 731323fa7cad98b4692a2634bd8c7d00, type: 3}
 --- !u!64 &8507702973838048735
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -139,10 +125,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6126597727823345709}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1432078340789219359, guid: 2776b6a09248f6f47bc624a83f1ee64d, type: 3}
 --- !u!1001 &4701563026036450886
@@ -240,25 +226,12 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5619972783167396631}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6329158148709259305, guid: 0713e3f9a11c76d47ac3ef003e938f5e, type: 3}
---- !u!114 &7325471591646472813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5619972783167396631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 731323fa7cad98b4692a2634bd8c7d00, type: 3}
 --- !u!1001 &6258507487096530889
 PrefabInstance:
   m_ObjectHideFlags: 0

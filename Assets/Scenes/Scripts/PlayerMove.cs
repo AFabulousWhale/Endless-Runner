@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
-    public GameObject deathCanvas, platforms, hitObject;
+    public GameObject deathCanvas;
     public TextMeshProUGUI score;
     public Score scoreScript;
     public Shark sharkScript;
@@ -14,11 +14,12 @@ public class PlayerMove : MonoBehaviour
 
     public Image heart1, heart2; //heart1 is left, heart2 is right
 
-    public int hitObstacleTimes = 0;
-
     public AudioSource mainMusic, deathMusic;
 
     public AudioClip death;
+
+   public AudioSource collision; //will be a different sound depending on if the object is a collectible or obstacle
+    public AudioClip obstacleSFX, collectibleSFX;
 
     private CharacterController controller;
     private Vector3 direction;
@@ -86,5 +87,24 @@ public class PlayerMove : MonoBehaviour
         leaderboard.OnDeath();
         sharkScript.enabled = false;
         this.enabled = false;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.transform.tag == "Collectible")
+        {
+            scoreScript.score += 100;
+            Destroy(hit.gameObject);
+            collision.clip = collectibleSFX;
+            collision.Play();
+        }
+        if (hit.transform.tag == "Obstacle")
+        {
+            hit.transform.tag = "Untagged";
+            hit.collider.enabled = false;
+            lives--;
+            collision.clip = obstacleSFX;
+            collision.Play();
+        }
     }
 }

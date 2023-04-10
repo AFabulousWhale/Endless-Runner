@@ -47,7 +47,6 @@ GameObject:
   - component: {fileID: 4903016472996974619}
   - component: {fileID: 8136992511438893888}
   - component: {fileID: 4962743317788633864}
-  - component: {fileID: 7745939996431412095}
   - component: {fileID: 3390265844414135888}
   m_Layer: 0
   m_Name: trashes.004
@@ -121,19 +120,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7745939996431412095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199088826056735252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 731323fa7cad98b4692a2634bd8c7d00, type: 3}
 --- !u!64 &3390265844414135888
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -142,10 +128,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199088826056735252}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1432078340789219359, guid: 2776b6a09248f6f47bc624a83f1ee64d, type: 3}
 --- !u!1 &1324471158437347547
@@ -388,7 +374,6 @@ GameObject:
   - component: {fileID: 2927697242359543534}
   - component: {fileID: 1189913449971939557}
   - component: {fileID: 5846714551691305828}
-  - component: {fileID: 6880812693994544106}
   - component: {fileID: 3169223522631892952}
   m_Layer: 0
   m_Name: trashes.015
@@ -462,19 +447,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6880812693994544106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4981309534127407351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 731323fa7cad98b4692a2634bd8c7d00, type: 3}
 --- !u!64 &3169223522631892952
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -483,10 +455,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4981309534127407351}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4411774589583429004, guid: 2776b6a09248f6f47bc624a83f1ee64d, type: 3}
 --- !u!1 &5111996050401304850
@@ -729,7 +701,6 @@ GameObject:
   - component: {fileID: 7940610912389605999}
   - component: {fileID: 3116837245727917102}
   - component: {fileID: 7864577660537313711}
-  - component: {fileID: 7419853331508516111}
   - component: {fileID: 3981450749117797114}
   m_Layer: 0
   m_Name: trashes.011
@@ -803,19 +774,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7419853331508516111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7484423240289023734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 731323fa7cad98b4692a2634bd8c7d00, type: 3}
 --- !u!64 &3981450749117797114
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -824,10 +782,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7484423240289023734}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6248673433752309154, guid: 2776b6a09248f6f47bc624a83f1ee64d, type: 3}
 --- !u!1 &7821242425531884036
@@ -1017,25 +975,12 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465688460815971240}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 0cdb5a19a1f62ad4cbc667c610a25fbf, type: 3}
---- !u!114 &6281868434880839181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465688460815971240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 084ea093875745c4ca3995bfd3c8a118, type: 3}
 --- !u!4 &954100787793848594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0cdb5a19a1f62ad4cbc667c610a25fbf, type: 3}

@@ -684,25 +684,12 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182108079668406594}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8614351422589998467, guid: 6c2853348770d604daa474b18344e5bb, type: 3}
---- !u!114 &7442276713211954791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182108079668406594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 084ea093875745c4ca3995bfd3c8a118, type: 3}
 --- !u!4 &706267969762456568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0cdb5a19a1f62ad4cbc667c610a25fbf, type: 3}
@@ -798,25 +785,12 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667086236966101341}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 0cdb5a19a1f62ad4cbc667c610a25fbf, type: 3}
---- !u!114 &4670007270554591243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667086236966101341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 084ea093875745c4ca3995bfd3c8a118, type: 3}
 --- !u!4 &2047306821722373095 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0cdb5a19a1f62ad4cbc667c610a25fbf, type: 3}
@@ -877,6 +851,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2df6b701d7ed800478b9a3a8dd6b3c65, type: 2}
+    - target: {fileID: -4742836972002496975, guid: e6f1688c391fe99418e35966af867eb8, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: -3944562278842856133, guid: e6f1688c391fe99418e35966af867eb8, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6f1688c391fe99418e35966af867eb8, type: 3}
       propertyPath: m_Name
       value: uploads_files_2740679_Aquarium-Ornaments+third+cave
@@ -911,24 +893,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6f1688c391fe99418e35966af867eb8, type: 3}
   m_PrefabInstance: {fileID: 3879829851965826753}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4113621958479584144 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e6f1688c391fe99418e35966af867eb8, type: 3}
-  m_PrefabInstance: {fileID: 3879829851965826753}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2677218310528115984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4113621958479584144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 731323fa7cad98b4692a2634bd8c7d00, type: 3}
 --- !u!1 &8977351019214908410 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3944562278842856133, guid: e6f1688c391fe99418e35966af867eb8, type: 3}

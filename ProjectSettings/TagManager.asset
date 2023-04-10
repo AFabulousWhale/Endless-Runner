@@ -4,12 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - HitBox
-  - Obstacles
   - Obstacle
-  - Platform
   - Collectible
-  - Walls
+  - Platform
   layers:
   - Default
   - TransparentFX

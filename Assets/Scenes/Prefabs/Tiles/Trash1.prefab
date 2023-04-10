@@ -174,7 +174,6 @@ GameObject:
   - component: {fileID: 4136402411059232580}
   - component: {fileID: 694054255081789211}
   - component: {fileID: 776318976874430924}
-  - component: {fileID: 7191956579460602786}
   - component: {fileID: 7455934487414581644}
   m_Layer: 0
   m_Name: trashes.001
@@ -248,19 +247,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7191956579460602786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799698303386139008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 731323fa7cad98b4692a2634bd8c7d00, type: 3}
 --- !u!64 &7455934487414581644
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -272,7 +258,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 729737926155358466, guid: 2776b6a09248f6f47bc624a83f1ee64d, type: 3}
 --- !u!1 &2891126115125958175
@@ -611,7 +597,6 @@ GameObject:
   - component: {fileID: 7807165653590938164}
   - component: {fileID: 7746557639651755817}
   - component: {fileID: 3686659839304381838}
-  - component: {fileID: 5062203154179964352}
   m_Layer: 0
   m_Name: trashes.016
   m_TagString: Obstacle
@@ -692,25 +677,12 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6555182983181399851}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6002374020708967389, guid: 2776b6a09248f6f47bc624a83f1ee64d, type: 3}
---- !u!114 &5062203154179964352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6555182983181399851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 731323fa7cad98b4692a2634bd8c7d00, type: 3}
 --- !u!1 &6715961465377518391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,25 +1156,12 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7145061921500392173}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4068373912626513877, guid: c4c4eedd5678d554a91a36887ef5489e, type: 3}
---- !u!114 &656839256917834517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7145061921500392173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c53b621c27183c5499d2693bcbc2ffd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 084ea093875745c4ca3995bfd3c8a118, type: 3}
 --- !u!4 &7522009024448114775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c4c4eedd5678d554a91a36887ef5489e, type: 3}
