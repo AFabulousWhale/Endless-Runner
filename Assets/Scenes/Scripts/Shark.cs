@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Shark : MonoBehaviour
 {
-    public Image heart;
     public PlayerMove playerMove;
     public GameObject player;
 
@@ -14,11 +13,8 @@ public class Shark : MonoBehaviour
 
     public string direction;
 
-    bool canfill;
-
     private void Start()
     {
-        canfill = true;
         direction = "forwards";
     }
     void Update()
@@ -27,11 +23,6 @@ public class Shark : MonoBehaviour
         sharkBackwardsPos = new Vector3(player.transform.position.x, player.transform.position.y, -11.81f);
         SharkCheck();
         FollowPlayer();
-
-        if(canfill)
-        {
-            FillHeart();
-        }
 
         if(direction == "backwards")
         {
@@ -51,20 +42,6 @@ public class Shark : MonoBehaviour
         direction = "backwards";
     }
 
-    void FillHeart()
-    {
-        ///if the heart isn't full
-        if (heart.fillAmount != 1)
-        {
-            heart.fillAmount += 0.001f;
-        }
-        else
-        {
-            canfill = false;
-            ResetShark();
-        }
-    }
-
     public void SharkCheck()
     {
 
@@ -77,7 +54,6 @@ public class Shark : MonoBehaviour
                 if (direction == "forwards")
                 {
                     Debug.Log("moveback");
-                    canfill = true;
                 }
                 sharkStartMoved = true; //boolean is used to make sure the shark moving is called once it reached it's desired position
             }

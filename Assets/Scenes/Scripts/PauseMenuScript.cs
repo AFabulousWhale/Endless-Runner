@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
-    public GameObject optionsMenu, pauseMenu, platforms;
+    public GameObject optionsMenu, pauseMenu;
     public Score scoreScript;
     public Shark sharkScript;
     public AudioSource button;
@@ -45,16 +45,6 @@ public class PauseMenuScript : MonoBehaviour
     public void Pause()
     {
         Time.timeScale = 0;
-        foreach (Transform item in platforms.transform)
-        {
-            foreach (Transform child in item)
-            {
-                if(child.tag == "Platform" || child.tag == "Walls")
-                {
-                    child.GetComponent<FloorController>().enabled = false;
-                }
-            }
-        }
         scoreScript.enabled = false;
         sharkScript.enabled = false;
         optionsMenu.SetActive(false);
@@ -70,16 +60,6 @@ public class PauseMenuScript : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1;
-        foreach (Transform item in platforms.transform)
-        {
-            foreach (Transform child in item)
-            {
-                if(child.tag == "Platform" || child.tag == "Walls")
-                {
-                    child.GetComponent<FloorController>().enabled = true;
-                }
-            }
-        }
         scoreScript.enabled = true;
         sharkScript.enabled = true;
         pauseMenu.SetActive(false);

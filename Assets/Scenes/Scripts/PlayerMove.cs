@@ -20,18 +20,69 @@ public class PlayerMove : MonoBehaviour
 
     public AudioClip death;
 
+    private CharacterController controller;
+    private Vector3 direction;
     public float forwardSpeed;
 
+    public bool fillingHeart1, fillingHeart2; //heart1 is left, heart2 is right
+
+    private void Start()
+    {
+        controller = GetComponent<CharacterController>(); //gets the player's character controller
+    }
     void Update()
     {
-        float xSpeed = Input.GetAxis("Horizontal") * 10f;
-        float ySpeed = Input.GetAxis("Vertical") * 10f;
-        this.transform.Translate(forwardSpeed * Time.deltaTime, ySpeed * Time.deltaTime, -xSpeed * Time.deltaTime);
+        forwardSpeed += 0.001f;
+        direction.z = forwardSpeed;
+        direction.x = Input.GetAxis("Horizontal") * 10f;
+        direction.y = Input.GetAxis("Vertical") * 10f;
+
+        if(fillingHeart1)
+        {
+            Heart1Fill();
+        }
+        else if (fillingHeart2)
+        {
+            Heart2Fill();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        controller.Move(direction * Time.fixedDeltaTime);
+    }
+
+    //health 0 - 50 fills first heart
+    public void Heart1Fill()
+    {
+        ///if the heart isn't full
+        if (heart1.fillAmount != 1)
+        {
+            heart1.fillAmount += 0.001f;
+        }
+        else
+        {
+            fillingHeart1 = false;
+            fillingHeart2 = true; //fills the second heart right after
+        }
+    }
+
+    //health 51 - 100 fills second heart
+    public void Heart2Fill()
+    {
+        ///if the heart isn't full
+        if (heart2.fillAmount != 1)
+        {
+            heart2.fillAmount += 0.001f;
+        }
+        else
+        {
+            fillingHeart2 = false;
+        }
     }
 
     public void Stutter()
     {
-        heart2.fillAmount = 0; //visually show you've lost 1 heart
         hitObstacleTimes++;
         sharkScript.sharkStartMoved = false;
         sharkScript.direction = "forwards"; //moves the shark forwards if you've stuttered
@@ -46,16 +97,6 @@ public class PlayerMove : MonoBehaviour
         deathMusic.Play();
         //making it so each platform and the player can't move when the player is dead
         deathCanvas.SetActive(true);
-        foreach (Transform item in platforms.transform)
-        {
-            foreach (Transform child in item)
-            {
-                if(child.tag == "Platform" || child.tag == "Walls")
-                {
-                    child.GetComponent<FloorController>().enabled = false;
-                }
-            }
-        }
         scoreScript.enabled = false;
         leaderboard.CompareScore(scoreScript.score);
         if(leaderboard.currentScores[0] != scoreScript.score)
