@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     public Shark sharkScript;
     public Leaderboard leaderboard;
 
-    public Image heart1, heart2;
+    public Image heart1, heart2; //heart1 is left, heart2 is right
 
     public int hitObstacleTimes = 0;
 
@@ -25,7 +25,7 @@ public class PlayerMove : MonoBehaviour
     public float yValue;
     public float forwardSpeed;
 
-    public bool fillingHeart1, fillingHeart2; //heart1 is left, heart2 is right
+    public int lives = 2;
 
     private void Start()
     {
@@ -47,15 +47,14 @@ public class PlayerMove : MonoBehaviour
             yValue -=  0.025f;
             yValue = Mathf.Clamp(yValue, 0, 3);
         }
-        //direction.y = Input.GetAxis("Vertical") * 10f;
 
-        if(fillingHeart1)
+        if(lives == 1)
         {
-            Heart1Fill();
+            heart2.fillAmount = 0;
         }
-        else if (fillingHeart2)
+        else if (lives == 0)
         {
-            Heart2Fill();
+            Death();
         }
     }
 
@@ -63,35 +62,6 @@ public class PlayerMove : MonoBehaviour
     {
         controller.Move(direction * Time.fixedDeltaTime);
         transform.position = new Vector3(transform.position.x, yValue, transform.position.z);
-    }
-
-    //health 0 - 50 fills first heart
-    public void Heart1Fill()
-    {
-        ///if the heart isn't full
-        if (heart1.fillAmount != 1)
-        {
-            heart1.fillAmount += 0.001f;
-        }
-        else
-        {
-            fillingHeart1 = false;
-            fillingHeart2 = true; //fills the second heart right after
-        }
-    }
-
-    //health 51 - 100 fills second heart
-    public void Heart2Fill()
-    {
-        ///if the heart isn't full
-        if (heart2.fillAmount != 1)
-        {
-            heart2.fillAmount += 0.001f;
-        }
-        else
-        {
-            fillingHeart2 = false;
-        }
     }
     
     public void Death()

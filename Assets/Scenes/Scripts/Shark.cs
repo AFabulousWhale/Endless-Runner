@@ -19,8 +19,8 @@ public class Shark : MonoBehaviour
     }
     void Update()
     {
-        //if the hearts are filling then the shark will be forwards
-        if(playerMove.fillingHeart2 || playerMove.fillingHeart1)
+        //if on 1 life shark is there
+        if(playerMove.lives <= 1)
         {
             followScript.offset.z = fwdOffset.z;
         }
