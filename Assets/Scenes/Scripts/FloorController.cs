@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FloorController : MonoBehaviour
 {
-    public GameObject movePos, backPlatform, spawnableParent, objects;
+    public GameObject movePos, backPlatform, spawnableParent, objects, wallsParent;
 
-    public List<GameObject> spawnables, movingObjects;
+    public List<GameObject> spawnables, movingObjects, walls;
 
     public float fishSpeed;
 
@@ -14,6 +14,8 @@ public class FloorController : MonoBehaviour
 
     Vector3 startPos, moveToPos;
     Renderer rend;
+
+    int chanceToSpawnBigObstacle = 1;
 
     private void Start()
     {
@@ -31,11 +33,17 @@ public class FloorController : MonoBehaviour
             }
         }
         moveToPos = new Vector3(this.transform.position.x, this.transform.position.y, movePos.transform.position.z);
+        //get's the size of the floor
         rend = this.GetComponent<Renderer>();
         startPos = backPlatform.transform.position;
         foreach (Transform spawnable in spawnableParent.transform) //if there are multiples objects, it adds it from one parent into a list (this is a prefab)
         {
             spawnables.Add(spawnable.gameObject);
+        }
+
+        foreach (Transform wall in wallsParent.transform)
+        {
+            walls.Add(wall.gameObject);
         }
     }
     void Update()
@@ -52,15 +60,26 @@ public class FloorController : MonoBehaviour
             if(this.tag == "Platform") //only spawn obstacles on the floors
             {
                 int spawnableCount;
+                int canSpawnBig;
                 foreach (Transform item in this.transform) //destorys the current collectibles on the platform
                 {
                     Destroy(item.gameObject);
                 }
-
+                canSpawnBig = chanceToSpawnBigObstacle;//Random.Range(1, 101);
                 spawnableCount = Random.Range(1, (maxSpawnables + 1));
-                for (int i = 0; i < spawnableCount; i++) //can spawn multiple per platform for more difficult levels
+
+                //will sometime spawn the big walls to avoid
+                if (canSpawnBig == chanceToSpawnBigObstacle)
                 {
-                    SpawnSpawnables();
+                    SpawnBigWall();
+                }
+                else
+                {
+                    Debug.Log("spawn obstacle");
+                    for (int i = 0; i < spawnableCount; i++) //can spawn multiple per platform for more difficult levels
+                    {
+                        SpawnSpawnables();
+                    }
                 }
             }
             this.transform.position = startPos;
@@ -76,6 +95,18 @@ public class FloorController : MonoBehaviour
         }
     }
 
+    void SpawnBigWall()
+    {
+        int visibleObstacle; //index in the list of walls to spawn
+        float spawnX = (rend.bounds.max.x / 2);
+        float spawnZ = (rend.bounds.max.z / 2);
+        Vector3 wallSpawn;
+        GameObject currentWall;
+        wallSpawn = new Vector3(spawnX, 0, spawnZ);
+        visibleObstacle = Random.Range(0, walls.Count);
+        currentWall = Instantiate(walls[visibleObstacle], wallSpawn, walls[visibleObstacle].transform.rotation * Quaternion.Euler(0f, 90f, 0f));
+        currentWall.transform.parent = this.transform;
+    }
     void SpawnSpawnables()
     {
         int visibleObstacle; //index in the list of spawnables to spawn

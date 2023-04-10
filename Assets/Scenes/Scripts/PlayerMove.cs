@@ -20,11 +20,13 @@ public class PlayerMove : MonoBehaviour
 
     public AudioClip death;
 
+    public float forwardSpeed;
+
     void Update()
     {
         float xSpeed = Input.GetAxis("Horizontal") * 10f;
         float ySpeed = Input.GetAxis("Vertical") * 10f;
-        this.transform.Translate(0, ySpeed * Time.deltaTime, -xSpeed * Time.deltaTime);
+        this.transform.Translate(forwardSpeed * Time.deltaTime, ySpeed * Time.deltaTime, -xSpeed * Time.deltaTime);
     }
 
     public void Stutter()

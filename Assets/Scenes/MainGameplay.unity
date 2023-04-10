@@ -15,11 +15,11 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.18115878, g: 0.27342904, b: 0.5566038, a: 1}
-  m_FogMode: 2
+  m_FogColor: {r: 0.41181403, g: 0.4951813, b: 0.745283, a: 1}
+  m_FogMode: 1
   m_FogDensity: 0.09
   m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogEnd: 50
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -1363,8 +1363,8 @@ GameObject:
   - component: {fileID: 168166502}
   - component: {fileID: 168166501}
   - component: {fileID: 168166500}
-  - component: {fileID: 168166499}
   - component: {fileID: 168166503}
+  - component: {fileID: 168166504}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Platform
@@ -1372,19 +1372,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &168166499
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168166498}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &168166500
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1470,6 +1457,19 @@ MonoBehaviour:
   movingObjects: []
   fishSpeed: 0.07
   maxSpawnables: 2
+--- !u!65 &168166504
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168166498}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0.000000029802322, y: 0, z: 0.000000059604645}
 --- !u!1 &200059588 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 91a41266adcb06f448f8757efd12ff99, type: 3}
@@ -2776,8 +2776,8 @@ GameObject:
   - component: {fileID: 501888366}
   - component: {fileID: 501888370}
   - component: {fileID: 501888369}
-  - component: {fileID: 501888368}
   - component: {fileID: 501888367}
+  - component: {fileID: 501888371}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Platform
@@ -2820,19 +2820,6 @@ MonoBehaviour:
   movingObjects: []
   fishSpeed: 0.07
   maxSpawnables: 2
---- !u!65 &501888368
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501888365}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &501888369
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2883,6 +2870,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501888365}
   m_Mesh: {fileID: 4068373912626513877, guid: f1037d18dea45ff43a73f0a46f6c759d, type: 3}
+--- !u!65 &501888371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501888365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0.000000029802322, y: 0, z: 0}
 --- !u!1 &543006238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,8 +2961,8 @@ GameObject:
   - component: {fileID: 558007658}
   - component: {fileID: 558007662}
   - component: {fileID: 558007661}
-  - component: {fileID: 558007660}
   - component: {fileID: 558007659}
+  - component: {fileID: 558007663}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Platform
@@ -3005,19 +3005,6 @@ MonoBehaviour:
   movingObjects: []
   fishSpeed: 0.07
   maxSpawnables: 2
---- !u!65 &558007660
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558007657}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &558007661
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3068,6 +3055,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558007657}
   m_Mesh: {fileID: 4068373912626513877, guid: f1037d18dea45ff43a73f0a46f6c759d, type: 3}
+--- !u!65 &558007663
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558007657}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0.000000029802322, y: 0, z: 0}
 --- !u!1 &569890830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,7 +3634,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 681bdd448f12fea479ca2009e671421e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3869,7 +3869,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 39
+  field of view: 30.6
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3894,14 +3894,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709618270}
-  m_LocalRotation: {x: 0.016301386, y: 0.7069189, z: -0.016301386, w: 0.7069189}
-  m_LocalPosition: {x: -9.79, y: 2.28, z: -0}
+  m_LocalRotation: {x: 0.04138297, y: 0.7058948, z: -0.04138297, w: 0.7058948}
+  m_LocalPosition: {x: -9.79, y: 2.06, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 680985808}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 2.642, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 6.71, y: 90, z: 0}
 --- !u!114 &709618274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6520,8 +6520,8 @@ GameObject:
   - component: {fileID: 1336491283}
   - component: {fileID: 1336491287}
   - component: {fileID: 1336491286}
-  - component: {fileID: 1336491285}
   - component: {fileID: 1336491284}
+  - component: {fileID: 1336491288}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Platform
@@ -6564,19 +6564,6 @@ MonoBehaviour:
   movingObjects: []
   fishSpeed: 0.07
   maxSpawnables: 2
---- !u!65 &1336491285
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336491282}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1336491286
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6627,6 +6614,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336491282}
   m_Mesh: {fileID: 4068373912626513877, guid: f1037d18dea45ff43a73f0a46f6c759d, type: 3}
+--- !u!65 &1336491288
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336491282}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0.000000029802322, y: 0, z: 0}
 --- !u!1 &1416794212 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 91a41266adcb06f448f8757efd12ff99, type: 3}
@@ -7049,7 +7049,7 @@ RectTransform:
   m_GameObject: {fileID: 1504772037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 21.675, y: 1.25, z: 1}
+  m_LocalScale: {x: 21.675, y: 28.369781, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 473745447}
@@ -7057,7 +7057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -89}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1504772039
@@ -7080,9 +7080,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 53b4258257442bb4e85d11a6ca577da8, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -7638,17 +7638,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686028768}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 21.675, y: 1.25, z: 1}
+  m_LocalScale: {x: 21.67499, y: 4.4933825, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 473745447}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 78}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1686028770
@@ -7671,7 +7671,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 53b4258257442bb4e85d11a6ca577da8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7948,8 +7948,8 @@ GameObject:
   - component: {fileID: 1799149033}
   - component: {fileID: 1799149036}
   - component: {fileID: 1799149035}
-  - component: {fileID: 1799149034}
   - component: {fileID: 1799149037}
+  - component: {fileID: 1799149038}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Platform
@@ -7972,19 +7972,6 @@ Transform:
   m_Father: {fileID: 1791311169}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1799149034
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799149032}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1799149035
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8055,6 +8042,19 @@ MonoBehaviour:
   movingObjects: []
   fishSpeed: 0.07
   maxSpawnables: 2
+--- !u!65 &1799149038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799149032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0.000000029802322, y: 0, z: 0}
 --- !u!1001 &1829315082
 PrefabInstance:
   m_ObjectHideFlags: 0
