@@ -9,58 +9,12 @@ public class AudioController : MonoBehaviour
 {
     public AudioMixer masterMixer;
     public Slider SFXSlider, MusicSlider, MainSlider;
-
-    public TextMeshProUGUI[] smallText;
-    public TextMeshProUGUI[] mediumText;
-    public TextMeshProUGUI[] bigText;
-
-    public TMP_FontAsset smallFont;
-    public TMP_FontAsset mediumFont;
-    public TMP_FontAsset bigFont;
-    public TMP_FontAsset SansSerif;
-
     float MusicVol, SFXVol, MainVol;
 
     bool fontChanged;
 
     private void Start()
     {
-        //fontChanged = intToBool(PlayerPrefs.GetInt("FontChange"));
-        //foreach (TextMeshProUGUI text in smallText)
-        //{
-        //    if(fontChanged == true)
-        //    {
-        //        text.font = SansSerif;
-        //    }
-        //    else
-        //    {
-        //        text.font = smallFont;
-        //    }
-        //}
-
-        //foreach (TextMeshProUGUI text in bigText)
-        //{
-        //    if (fontChanged == true)
-        //    {
-        //        text.font = SansSerif;
-        //    }
-        //    else
-        //    {
-        //        text.font = bigFont;
-        //    }
-        //}
-
-        //foreach (TextMeshProUGUI text in mediumText)
-        //{
-        //    if (fontChanged == true)
-        //    {
-        //        text.font = SansSerif;
-        //    }
-        //    else
-        //    {
-        //        text.font = mediumFont;
-        //    }
-        //}
         MusicVol = PlayerPrefs.GetFloat("Music");
         SFXVol = PlayerPrefs.GetFloat("SFX");
         MainVol = PlayerPrefs.GetFloat("Main");
@@ -102,63 +56,5 @@ public class AudioController : MonoBehaviour
         PlayerPrefs.SetFloat("Main", volume);
         volume = Mathf.Log(volume) * 20;
         masterMixer.SetFloat("MainVolume", volume);
-    }
-
-    public void ChangeFont()
-    {
-        fontChanged = !fontChanged;
-        PlayerPrefs.SetInt("FontChange", boolToInt(fontChanged));
-
-        foreach (TextMeshProUGUI text in smallText)
-        {
-            if (fontChanged == true)
-            {
-                text.font = SansSerif;
-            }
-            else
-            {
-                text.font = smallFont;
-            }
-        }
-
-        foreach (TextMeshProUGUI text in bigText)
-        {
-            if (fontChanged == true)
-            {
-                text.font = SansSerif;
-            }
-            else
-            {
-                text.font = bigFont;
-            }
-        }
-
-        foreach (TextMeshProUGUI text in mediumText)
-        {
-            if (fontChanged == true)
-            {
-                text.font = SansSerif;
-            }
-            else
-            {
-                text.font = mediumFont;
-            }
-        }
-    }
-
-    int boolToInt(bool val)
-    {
-        if (val)
-            return 1;
-        else
-            return 0;
-    }
-
-    bool intToBool(int val)
-    {
-        if (val != 0)
-            return true;
-        else
-            return false;
     }
 }

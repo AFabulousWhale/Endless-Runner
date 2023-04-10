@@ -270,6 +270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trash3
       objectReference: {fileID: 0}
+    - target: {fileID: 954100787793848594, guid: 2b752e3fbdf989f49a570a62cc37ee42, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.25
+      objectReference: {fileID: 0}
     - target: {fileID: 1377459006359392853, guid: 2b752e3fbdf989f49a570a62cc37ee42, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -337,6 +341,10 @@ PrefabInstance:
     - target: {fileID: 6953084523059434915, guid: 2b752e3fbdf989f49a570a62cc37ee42, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6953084523059434915, guid: 2b752e3fbdf989f49a570a62cc37ee42, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 6997498392595307925, guid: 2b752e3fbdf989f49a570a62cc37ee42, type: 3}
       propertyPath: movePos

@@ -5,64 +5,28 @@ using UnityEngine.UI;
 
 public class Shark : MonoBehaviour
 {
+    public GameObject Player;
     public PlayerMove playerMove;
-    public GameObject player;
+    private CameraFollow followScript;
 
-    public bool sharkStartMoved = true;
-    public Vector3 sharkForwardPos, sharkBackwardsPos, moveToPos, playerPos;
-
-    public string direction;
+    public Vector3 backOffset, fwdOffset;
 
     private void Start()
     {
-        direction = "forwards";
+        followScript = this.GetComponent<CameraFollow>();
+        fwdOffset = transform.position - Player.transform.position;
+        backOffset.z = (fwdOffset.z - 30); //this will make the shark behind the player
     }
     void Update()
     {
-        sharkForwardPos = new Vector3(player.transform.position.x, player.transform.position.y, -4.44f);
-        sharkBackwardsPos = new Vector3(player.transform.position.x, player.transform.position.y, -11.81f);
-        SharkCheck();
-        FollowPlayer();
-
-        if(direction == "backwards")
+        //if the hearts are filling then the shark will be forwards
+        if(playerMove.fillingHeart2 || playerMove.fillingHeart1)
         {
-            moveToPos = sharkBackwardsPos;
+            followScript.offset.z = fwdOffset.z;
         }
-        else if (direction == "forwards")
+        else
         {
-            moveToPos = sharkForwardPos;
+            followScript.offset.z = backOffset.z;
         }
-    }
-    //shark movement depending on the player hitting the obstacles:
-
-    void ResetShark()
-    {
-        playerMove.hitObstacleTimes = 0; //resets the obstacles hit
-        sharkStartMoved = false;
-        direction = "backwards";
-    }
-
-    public void SharkCheck()
-    {
-
-        if (!sharkStartMoved)
-        {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, moveToPos, 0.05f);
-            if (this.transform.position == moveToPos)
-            {
-                //if the shark is facing forwards and has reached the destination then the timer will be reset but if the player hits another obstacle in that time then they die
-                if (direction == "forwards")
-                {
-                    Debug.Log("moveback");
-                }
-                sharkStartMoved = true; //boolean is used to make sure the shark moving is called once it reached it's desired position
-            }
-        }
-    }
-
-    public void FollowPlayer()
-    {
-        playerPos = new Vector3(player.transform.position.x, player.transform.position.y, moveToPos.z);
-        this.transform.position = Vector3.MoveTowards(this.transform.position, playerPos, 0.05f);
     }
 }

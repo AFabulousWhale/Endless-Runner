@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 direction;
+    public float yValue;
     public float forwardSpeed;
 
     public bool fillingHeart1, fillingHeart2; //heart1 is left, heart2 is right
@@ -35,7 +36,18 @@ public class PlayerMove : MonoBehaviour
         forwardSpeed += 0.001f;
         direction.z = forwardSpeed;
         direction.x = Input.GetAxis("Horizontal") * 10f;
-        direction.y = Input.GetAxis("Vertical") * 10f;
+
+        if(Input.GetKey(KeyCode.Space))
+        {
+            yValue += 0.025f;
+            yValue = Mathf.Clamp(yValue, 0, 3);
+        }
+        else
+        {
+            yValue -=  0.025f;
+            yValue = Mathf.Clamp(yValue, 0, 3);
+        }
+        //direction.y = Input.GetAxis("Vertical") * 10f;
 
         if(fillingHeart1)
         {
@@ -50,6 +62,7 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         controller.Move(direction * Time.fixedDeltaTime);
+        transform.position = new Vector3(transform.position.x, yValue, transform.position.z);
     }
 
     //health 0 - 50 fills first heart
@@ -79,13 +92,6 @@ public class PlayerMove : MonoBehaviour
         {
             fillingHeart2 = false;
         }
-    }
-
-    public void Stutter()
-    {
-        hitObstacleTimes++;
-        sharkScript.sharkStartMoved = false;
-        sharkScript.direction = "forwards"; //moves the shark forwards if you've stuttered
     }
     
     public void Death()
