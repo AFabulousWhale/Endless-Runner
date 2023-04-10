@@ -23,8 +23,8 @@ public class Shark : MonoBehaviour
     }
     void Update()
     {
-        sharkForwardPos = new Vector3(player.transform.position.x, this.transform.position.y, -4.44f);
-        sharkBackwardsPos = new Vector3(player.transform.position.x, this.transform.position.y, -11.81f);
+        sharkForwardPos = new Vector3(player.transform.position.x, player.transform.position.y, -4.44f);
+        sharkBackwardsPos = new Vector3(player.transform.position.x, player.transform.position.y, -11.81f);
         SharkCheck();
         FollowPlayer();
 
@@ -86,7 +86,7 @@ public class Shark : MonoBehaviour
 
     public void FollowPlayer()
     {
-        playerPos = new Vector3(player.transform.position.x, moveToPos.y, moveToPos.z);
+        playerPos = new Vector3(player.transform.position.x, player.transform.position.y, moveToPos.z);
         this.transform.position = Vector3.MoveTowards(this.transform.position, playerPos, 0.05f);
     }
 }
