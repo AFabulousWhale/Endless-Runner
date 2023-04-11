@@ -2826,7 +2826,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680985804}
-  m_Mesh: {fileID: -5750084716789328873, guid: cbcfaba589d71914e8e4ed38c028e213, type: 3}
+  m_Mesh: {fileID: 6320377392646628168, guid: 683b58e965719904ca627190d1c9ea96, type: 3}
 --- !u!4 &680985808
 Transform:
   m_ObjectHideFlags: 0
@@ -2834,14 +2834,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680985804}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.36}
   m_LocalScale: {x: 1.2563, y: 1.2563, z: 1.2563}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &680985810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2997,7 +2997,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -5750084716789328873, guid: cbcfaba589d71914e8e4ed38c028e213, type: 3}
+  m_Mesh: {fileID: 6320377392646628168, guid: 683b58e965719904ca627190d1c9ea96, type: 3}
 --- !u!1 &709618270
 GameObject:
   m_ObjectHideFlags: 0
@@ -4516,7 +4516,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256736004}
-  m_Mesh: {fileID: 6050458567735615519, guid: 233f2b0909a763742a7e0c8dee287f5f, type: 3}
+  m_Mesh: {fileID: -7518479412315109983, guid: 3724f03b4f3c8404e8b60881dfa9053f, type: 3}
 --- !u!4 &1256736008
 Transform:
   m_ObjectHideFlags: 0
@@ -4524,14 +4524,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256736004}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.16000001, z: -6.730002}
   m_LocalScale: {x: 2.3489752, y: 2.348975, z: 2.3489752}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1256736009
 MonoBehaviour:
   m_ObjectHideFlags: 0
