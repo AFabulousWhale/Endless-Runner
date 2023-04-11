@@ -64,4 +64,9 @@ public class MainMenuScript : MonoBehaviour
     {
         buttonHover.Play();
     }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
 }

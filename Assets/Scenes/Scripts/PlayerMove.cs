@@ -36,18 +36,21 @@ public class PlayerMove : MonoBehaviour
     {
         if (!Cinematic.playingCinematic) //waits until cinematic is done before playing game
         {
-            forwardSpeed += 0.001f;
+            if (forwardSpeed != 30)
+            {
+                forwardSpeed += 0.001f;
+            }
             direction.z = forwardSpeed;
             direction.x = Input.GetAxis("Horizontal") * 10f;
 
             if (Input.GetKey(KeyCode.Space))
             {
-                yValue += 0.025f;
+                yValue += (0.0025f * (forwardSpeed));
                 yValue = Mathf.Clamp(yValue, 0, 3);
             }
             else
             {
-                yValue -= 0.025f;
+                yValue -= (0.0025f * (forwardSpeed));
                 yValue = Mathf.Clamp(yValue, 0, 3);
             }
 
