@@ -34,28 +34,31 @@ public class PlayerMove : MonoBehaviour
     }
     void Update()
     {
-        forwardSpeed += 0.001f;
-        direction.z = forwardSpeed;
-        direction.x = Input.GetAxis("Horizontal") * 10f;
+        if (!Cinematic.playingCinematic) //waits until cinematic is done before playing game
+        {
+            forwardSpeed += 0.001f;
+            direction.z = forwardSpeed;
+            direction.x = Input.GetAxis("Horizontal") * 10f;
 
-        if(Input.GetKey(KeyCode.Space))
-        {
-            yValue += 0.025f;
-            yValue = Mathf.Clamp(yValue, 0, 3);
-        }
-        else
-        {
-            yValue -=  0.025f;
-            yValue = Mathf.Clamp(yValue, 0, 3);
-        }
+            if (Input.GetKey(KeyCode.Space))
+            {
+                yValue += 0.025f;
+                yValue = Mathf.Clamp(yValue, 0, 3);
+            }
+            else
+            {
+                yValue -= 0.025f;
+                yValue = Mathf.Clamp(yValue, 0, 3);
+            }
 
-        if(lives == 1)
-        {
-            heart2.fillAmount = 0;
-        }
-        else if (lives == 0)
-        {
-            Death();
+            if (lives == 1)
+            {
+                heart2.fillAmount = 0;
+            }
+            else if (lives == 0)
+            {
+                Death();
+            }
         }
     }
 

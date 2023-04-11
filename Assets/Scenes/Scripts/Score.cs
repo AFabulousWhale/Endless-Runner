@@ -12,7 +12,10 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score += 0.5f;
-        scoreText.text = score.ToString("Score:0");
+        if (!Cinematic.playingCinematic) //score will go up once cinematic is over
+        {
+            score += 0.5f;
+            scoreText.text = score.ToString("Score:0");
+        }
     }
 }

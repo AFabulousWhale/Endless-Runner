@@ -14,23 +14,26 @@ public class PauseMenuScript : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (!Cinematic.playingCinematic)
         {
-            if(menu == "game")
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                button.Play();
-                menu = "paused";
-                Pause();
-            }
-            else if (menu == "paused")
-            {
-                menu = "game";
-                Resume();
-            }
-            else if (menu == "options")
-            {
-                menu = "paused";
-                Pause();
+                if (menu == "game")
+                {
+                    button.Play();
+                    menu = "paused";
+                    Pause();
+                }
+                else if (menu == "paused")
+                {
+                    menu = "game";
+                    Resume();
+                }
+                else if (menu == "options")
+                {
+                    menu = "paused";
+                    Pause();
+                }
             }
         }
     }

@@ -15,7 +15,10 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
-        Vector3 newPos = new Vector3(offset.x + target.position.x, transform.position.y, offset.z + target.position.z);
-        this.transform.position = newPos;
+        if (!Cinematic.playingCinematic)
+        {
+            Vector3 newPos = new Vector3(offset.x + target.position.x, transform.position.y, offset.z + target.position.z);
+            this.transform.position = newPos;
+        }
     }
 }

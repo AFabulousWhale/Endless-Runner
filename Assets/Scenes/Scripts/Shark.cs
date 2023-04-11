@@ -20,13 +20,16 @@ public class Shark : MonoBehaviour
     void Update()
     {
         //if on 1 life shark is there
-        if(playerMove.lives <= 1)
+        if (!Cinematic.playingCinematic)
         {
-            followScript.offset.z = fwdOffset.z;
-        }
-        else
-        {
-            followScript.offset.z = backOffset.z;
+            if (playerMove.lives <= 1)
+            {
+                followScript.offset.z = fwdOffset.z;
+            }
+            else
+            {
+                followScript.offset.z = backOffset.z;
+            }
         }
     }
 }
